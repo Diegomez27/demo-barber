@@ -1,52 +1,93 @@
-# DemoBarberia
+# ✂️ Barbería Urbana — Landing Premium
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 21.1.2.
+Demo de **presencia web** del [portafolio de Diego Gómez](https://github.com/Diegomez27/portfolio-web).
+Landing page de una barbería de especialidad ficticia, mobile-first, con identidad visual oscura y premium,
+sin dependencias de UI.
 
-## Development server
+> Parte del catálogo de demos del portafolio. El objetivo es mostrar capacidad de diseño y
+> frontend moderno: cada demo se ve y se siente como un producto terminado, no como un ejercicio.
 
-To start a local development server, run:
+🔗 **Demo en vivo:** _(pendiente de deploy en Vercel)_
+
+---
+
+## Qué demuestra
+
+- Diseño **mobile-first** con identidad visual oscura, urbana y premium. Paleta: negro carbón, blanco roto, dorado como acento.
+- **Angular moderno**: standalone components, Signals y control flow (`@if` / `@for`).
+- CSS propio con **variables de tema**, sin librerías de UI (Angular Material, PrimeNG, etc.).
+- Galería **masonry sin librerías** — CSS puro y responsive.
+- Integración de **WhatsApp API** con número y mensaje prellenados.
+- Animaciones de entrada con una **directiva `appReveal`** propia (IntersectionObserver).
+
+---
+
+## Secciones
+
+| Sección | Descripción |
+|---|---|
+| **Hero** | Video o imagen full-screen con headline de impacto. |
+| **Servicios** | Cards horizontales con nombre, descripción y precio. |
+| **Galería** | Grid masonry CSS con fotos del negocio. |
+| **Equipo** | Perfiles de barberos: foto, nombre y especialidad. |
+| **Reserva** | Botón que abre WhatsApp con número y mensaje de prueba. |
+| **Footer** | Ubicación, horarios, redes y mapa embebido. |
+
+---
+
+## Stack
+
+- **Framework:** Angular 20 (standalone + Signals)
+- **Lenguaje:** TypeScript
+- **Estilos:** SCSS con variables CSS personalizadas
+- **Tipografía:** Bebas Neue (títulos display) · [Google Fonts](https://fonts.google.com)
+- **Imágenes:** Unsplash
+- **Datos:** JSON local (sin backend)
+- **Deploy:** Vercel
+
+---
+
+## Desarrollo local
 
 ```bash
-ng serve
+npm install
+npm start
 ```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+Abrir `http://localhost:4200/`.
 
-## Code scaffolding
-
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+### Build de producción
 
 ```bash
-ng generate component component-name
+npm run build
 ```
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+Genera los artefactos en `dist/demo-barberia/browser/`.
 
-```bash
-ng generate --help
-```
+---
 
-## Building
+## ▲ Deploy en Vercel
 
-To build the project run:
+El repositorio incluye [`vercel.json`](./vercel.json) con la configuración lista:
 
-```bash
-ng build
-```
+- **Framework:** Angular
+- **Build command:** `npm run build`
+- **Output directory:** `dist/demo-barberia/browser`
+- **Rewrites:** todas las rutas a `index.html` (SPA)
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+Para desplegar, importar el proyecto en Vercel apuntando el **Root Directory** a esta carpeta
+(`Demos/landings/demo-barberia`). Vercel detecta el `vercel.json` automáticamente; no requiere
+variables de entorno.
 
-## Running unit tests
+---
 
-To execute unit tests with the [Vitest](https://vitest.dev/) test runner, use the following command:
+## Criterios de calidad
 
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
+- ✓ Lighthouse mobile ≥ 90 en Performance y Accessibility
+- ✓ Responsive desde 375px (móvil) hasta 1280px (desktop)
+- ✓ Botón WhatsApp con número y mensaje prellenados
+- ✓ Galería sin overflow en móvil
+- ✓ Sin dependencias de UI externas
 
 ```bash
 ng e2e

@@ -1,0 +1,79 @@
+<footer class="footer" id="visitanos">
+  <div class="shell footer__grid">
+    <div class="footer__info" data-reveal>
+      <a class="brand footer__brand" href="#top" aria-label="NAVAJA — inicio">
+        <span class="brand__mark" aria-hidden="true">N</span>
+        <span class="brand__name">NAVAJA</span>
+      </a>
+      <p class="footer__tag">{{ biz.tagline }} · Roma Norte</p>
+
+      <div class="footer__block">
+        <h2 class="footer__label">Dónde</h2>
+        <address class="footer__address">
+          {{ biz.address }}<br />
+          {{ biz.city }}
+        </address>
+      </div>
+
+      <div class="footer__block">
+        <h2 class="footer__label">Horario</h2>
+        <ul class="footer__hours">
+          @for (h of biz.hours; track h.day) {
+            <li>
+              <span>{{ h.day }}</span>
+              <span class="footer__time">{{ h.time }}</span>
+            </li>
+          }
+        </ul>
+      </div>
+
+      <div class="footer__block">
+        <h2 class="footer__label">Contacto</h2>
+        <div class="footer__links">
+          <a [href]="wa" target="_blank" rel="noopener">{{ biz.phoneDisplay }}</a>
+          <a
+            [href]="'https://instagram.com/' + biz.instagram.slice(1)"
+            target="_blank"
+            rel="noopener"
+            >{{ biz.instagram }}</a
+          >
+        </div>
+        <a class="btn btn--gold footer__cta" [href]="wa" target="_blank" rel="noopener">
+          Agendar por WhatsApp
+        </a>
+      </div>
+    </div>
+
+    <div class="footer__map" data-reveal>
+      <div class="footer__map-fallback" aria-hidden="true">
+        <svg class="footer__pin" viewBox="0 0 24 24" fill="none">
+          <path
+            d="M12 21s7-5.6 7-11a7 7 0 1 0-14 0c0 5.4 7 11 7 11Z"
+            stroke="currentColor"
+            stroke-width="1.5"
+          />
+          <circle cx="12" cy="10" r="2.5" stroke="currentColor" stroke-width="1.5" />
+        </svg>
+        <p class="footer__map-addr">{{ biz.address }}<br />{{ biz.city }}</p>
+        <a
+          class="footer__map-link"
+          [href]="'https://www.google.com/maps/search/?api=1&query=' + mapQuery"
+          target="_blank"
+          rel="noopener"
+          >Cómo llegar →</a
+        >
+      </div>
+      <iframe
+        [src]="map"
+        title="Mapa de ubicación de NAVAJA en Roma Norte, CDMX"
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"
+      ></iframe>
+    </div>
+  </div>
+
+  <div class="shell footer__bottom">
+    <p>© {{ year }} NAVAJA Barbería · Sitio de demostración</p>
+    <p class="footer__credit">Diseño &amp; desarrollo — Diego Gómez</p>
+  </div>
+</footer>

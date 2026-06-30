@@ -1,0 +1,188 @@
+// ============================================================
+//  Tipografía base, utilidades y primitivas compartidas
+// ============================================================
+
+body {
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-size: var(--fs-body);
+  font-weight: 400;
+  overflow-x: hidden;
+}
+
+// ---- Titulares display (Bebas Neue, mayúsculas) ----
+.display {
+  font-family: var(--font-display);
+  font-weight: 400;
+  line-height: 0.92;
+  letter-spacing: 0.01em;
+  text-transform: uppercase;
+  text-wrap: balance;
+}
+
+h1,
+h2,
+h3 {
+  text-wrap: balance;
+}
+
+p {
+  text-wrap: pretty;
+}
+
+// ---- Layout ----
+.shell {
+  width: 100%;
+  max-width: var(--maxw);
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+}
+
+.section {
+  padding-block: var(--section-y);
+}
+
+// ---- Kicker dorado (sistema de marca deliberado, no eyebrow genérico) ----
+.kicker {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-size: var(--fs-label);
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+
+.kicker::before {
+  content: '';
+  width: 1.75rem;
+  height: 1px;
+  background: var(--gold);
+  opacity: 0.8;
+}
+
+// ---- Texto guía ----
+.lead {
+  font-size: var(--fs-lead);
+  color: var(--ink-dim);
+  line-height: 1.65;
+  max-width: 52ch;
+}
+
+// ---- Botones ----
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  padding: 0.95rem 1.6rem;
+  border-radius: var(--r-pill);
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 0.95rem;
+  letter-spacing: 0.01em;
+  line-height: 1;
+  transition: transform var(--dur-1) var(--ease-out),
+    background-color var(--dur-1) var(--ease-out),
+    color var(--dur-1) var(--ease-out), border-color var(--dur-1) var(--ease-out);
+  will-change: transform;
+}
+
+.btn:active {
+  transform: translateY(1px);
+}
+
+.btn--gold {
+  background: var(--gold);
+  color: oklch(0.13 0 0); // negro sobre dorado: 8.8:1, convención premium
+}
+
+.btn--gold:hover {
+  background: var(--gold-bright);
+  transform: translateY(-2px);
+}
+
+.btn--ghost {
+  border: 1px solid var(--line-strong);
+  color: var(--ink);
+}
+
+.btn--ghost:hover {
+  border-color: var(--gold);
+  color: var(--gold);
+}
+
+.btn--wa {
+  background: var(--wa);
+  color: oklch(0.16 0.02 158);
+  font-weight: 700;
+}
+
+.btn--wa:hover {
+  background: var(--wa-bright);
+  transform: translateY(-2px);
+}
+
+.btn__icon {
+  width: 1.2em;
+  height: 1.2em;
+  flex: none;
+}
+
+// ---- Accesibilidad: salto de contenido ----
+.skip-link {
+  position: fixed;
+  top: 0.75rem;
+  left: 0.75rem;
+  z-index: var(--z-skip);
+  padding: 0.7rem 1.1rem;
+  background: var(--gold);
+  color: oklch(0.13 0 0);
+  border-radius: var(--r-sm);
+  font-weight: 600;
+  transform: translateY(-150%);
+  transition: transform var(--dur-1) var(--ease-out);
+}
+
+.skip-link:focus {
+  transform: translateY(0);
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+// ---- Revelado al hacer scroll ----
+// El estado por defecto es VISIBLE. La directiva "arma" el estado inicial
+// solo cuando hay JS, evitando que la sección se quede en blanco sin JS o
+// en renders headless / Lighthouse.
+[data-reveal].is-armed {
+  opacity: 0;
+  transform: translateY(26px);
+  transition: opacity var(--dur-3) var(--ease-out-expo),
+    transform var(--dur-3) var(--ease-out-expo);
+  transition-delay: var(--reveal-delay, 0ms);
+}
+
+[data-reveal].is-armed.is-in {
+  opacity: 1;
+  transform: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  [data-reveal].is-armed {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}

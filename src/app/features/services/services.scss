@@ -1,0 +1,138 @@
+.services {
+  background: var(--bg);
+}
+
+.services__grid {
+  display: grid;
+  gap: clamp(2.5rem, 6vw, 5rem);
+}
+
+.services__title {
+  margin-top: 1rem;
+  font-size: var(--fs-h2);
+  color: var(--ink);
+}
+
+.services__head .lead {
+  margin-top: 1.25rem;
+}
+
+.services__note {
+  margin-top: 1.25rem;
+  font-size: var(--fs-sm);
+  color: var(--muted);
+}
+
+.services__list {
+  display: flex;
+  flex-direction: column;
+}
+
+.srv {
+  border-top: 1px solid var(--line);
+}
+
+.srv:last-child {
+  border-bottom: 1px solid var(--line);
+}
+
+.srv__link {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1.5rem;
+  padding: clamp(1.25rem, 3vw, 1.85rem) clamp(0.5rem, 2vw, 1.25rem);
+  border-radius: var(--r-md);
+  transition: background-color var(--dur-2) var(--ease-out),
+    padding-left var(--dur-2) var(--ease-out);
+}
+
+.srv__link:hover {
+  background: var(--surface);
+  padding-left: clamp(1rem, 2.5vw, 1.75rem);
+}
+
+.srv__main {
+  min-width: 0;
+}
+
+.srv__name {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-family: var(--font-display);
+  font-size: var(--fs-h3);
+  font-weight: 400;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  color: var(--ink);
+}
+
+.srv__tag {
+  font-family: var(--font-body);
+  font-size: 0.6rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: oklch(0.13 0 0);
+  background: var(--gold);
+  padding: 0.2rem 0.45rem;
+  border-radius: var(--r-sm);
+  transform: translateY(-0.15em);
+}
+
+.srv__desc {
+  margin-top: 0.45rem;
+  color: var(--muted);
+  font-size: var(--fs-sm);
+  max-width: 46ch;
+}
+
+.srv__time {
+  display: inline-block;
+  margin-top: 0.6rem;
+  font-size: var(--fs-label);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+
+.srv__price {
+  flex: none;
+  font-family: var(--font-display);
+  font-size: var(--fs-price);
+  letter-spacing: 0.02em;
+  color: var(--gold);
+  line-height: 1;
+}
+
+.srv__currency {
+  font-size: 0.6em;
+  vertical-align: 0.35em;
+  margin-right: 0.05em;
+  color: var(--gold-deep);
+}
+
+.srv--featured .srv__link {
+  background: linear-gradient(
+    100deg,
+    var(--gold-veil),
+    transparent 65%
+  );
+}
+
+.srv--featured .srv__link:hover {
+  background: linear-gradient(100deg, var(--gold-veil), var(--surface) 80%);
+}
+
+@media (min-width: 880px) {
+  .services__grid {
+    grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr);
+    align-items: start;
+  }
+
+  .services__head {
+    position: sticky;
+    top: 6rem;
+  }
+}

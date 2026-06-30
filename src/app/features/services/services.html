@@ -1,0 +1,39 @@
+<section class="services section" id="servicios">
+  <div class="shell services__grid">
+    <header class="services__head" data-reveal>
+      <p class="kicker">La carta</p>
+      <h2 class="display services__title">Servicios &amp; precios</h2>
+      <p class="lead">
+        Precios en pesos, sin sorpresas. Cada servicio incluye consulta de
+        estilo — te decimos qué te queda antes de tocar el cabello.
+      </p>
+      <p class="services__note">Pagos en efectivo y tarjeta · Walk-ins según disponibilidad</p>
+    </header>
+
+    <ul class="services__list">
+      @for (s of services; track s.name; let i = $index) {
+        <li
+          class="srv"
+          [class.srv--featured]="s.featured"
+          [data-reveal]="i * 70"
+        >
+          <a class="srv__link" [href]="wa(s.name)" target="_blank" rel="noopener">
+            <div class="srv__main">
+              <h3 class="srv__name">
+                {{ s.name }}
+                @if (s.featured) {
+                  <span class="srv__tag">Top</span>
+                }
+              </h3>
+              <p class="srv__desc">{{ s.description }}</p>
+              <span class="srv__time">{{ s.durationMin }} min</span>
+            </div>
+            <div class="srv__price">
+              <span class="srv__currency">$</span>{{ s.price }}
+            </div>
+          </a>
+        </li>
+      }
+    </ul>
+  </div>
+</section>

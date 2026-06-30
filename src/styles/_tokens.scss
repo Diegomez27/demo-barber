@@ -1,0 +1,79 @@
+// ============================================================
+//  NAVAJA · Tokens de diseño
+//  Paleta en OKLCH. Identidad: negro carbón, blanco roto, dorado.
+//  Estrategia de color: dark "drenched" — la superficie ES la marca,
+//  el dorado es el único peso saturado.
+// ============================================================
+
+:root {
+  // ---- Superficies (negro carbón) ----
+  --bg: oklch(0.12 0 0);            // fondo base — negro carbón
+  --bg-deep: oklch(0.08 0 0);       // secciones hundidas / footer
+  --surface: oklch(0.16 0.004 70);  // tarjetas, paneles (leve calidez)
+  --surface-2: oklch(0.2 0.005 70); // hover / elevación
+
+  // ---- Tinta (blanco roto) ----
+  --ink: oklch(0.95 0.008 75);      // texto cuerpo / titulares
+  --ink-dim: oklch(0.84 0.008 75);  // texto sobre imagen
+  --muted: oklch(0.71 0.012 72);    // texto secundario, etiquetas
+
+  // ---- Acento (dorado) ----
+  --gold: oklch(0.74 0.11 85);
+  --gold-bright: oklch(0.83 0.1 88);
+  --gold-deep: oklch(0.56 0.09 80);
+
+  // ---- WhatsApp (color de marca externa, solo el botón WA) ----
+  --wa: oklch(0.74 0.17 158);
+  --wa-bright: oklch(0.8 0.16 158);
+
+  // ---- Líneas y velos ----
+  --line: oklch(1 0 0 / 0.1);
+  --line-strong: oklch(1 0 0 / 0.18);
+  --gold-veil: oklch(0.74 0.11 85 / 0.14);
+  --scrim: oklch(0.05 0 0 / 0.62);
+
+  // ---- Tipografía ----
+  --font-display: 'Bebas Neue', 'Arial Narrow', sans-serif;
+  --font-body: 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
+
+  // Escala fluida — display condensado (Bebas) sube rápido.
+  --fs-hero: clamp(3.6rem, 13.5vw, 8.5rem);
+  --fs-display: clamp(2.8rem, 9vw, 6rem);
+  --fs-h2: clamp(2.2rem, 6.5vw, 4.25rem);
+  --fs-h3: clamp(1.5rem, 4vw, 2.25rem);
+  --fs-price: clamp(1.5rem, 4.5vw, 2.1rem);
+  --fs-lead: clamp(1.05rem, 1.4vw, 1.3rem);
+  --fs-body: 1rem;
+  --fs-sm: 0.875rem;
+  --fs-label: 0.75rem;
+
+  // ---- Ritmo / espaciado ----
+  --section-y: clamp(4.5rem, 11vw, 9rem);
+  --gutter: clamp(1.25rem, 5vw, 4rem);
+  --maxw: 76rem;
+  --maxw-narrow: 46rem;
+
+  // ---- Radios (contenidos: tarjetas 12–16px máx) ----
+  --r-sm: 6px;
+  --r-md: 12px;
+  --r-lg: 16px;
+  --r-pill: 999px;
+
+  // ---- Sombras ----
+  --shadow-card: 0 18px 40px -24px oklch(0 0 0 / 0.8);
+  --shadow-float: 0 12px 30px -8px oklch(0 0 0 / 0.6);
+
+  // ---- Movimiento ----
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);     // ease-out-quint
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+  --dur-1: 0.18s;
+  --dur-2: 0.4s;
+  --dur-3: 0.7s;
+
+  // ---- Escala z-index semántica ----
+  --z-base: 1;
+  --z-sticky: 100;
+  --z-fab: 200;
+  --z-header: 300;
+  --z-skip: 400;
+}

@@ -1,8 +1,9 @@
+// Composición centrada (el hero del demo-cafe es abajo-izquierda).
 .hero {
   position: relative;
   min-height: 100svh;
   display: flex;
-  align-items: flex-end;
+  align-items: center;
   overflow: hidden;
   isolation: isolate;
 }
@@ -31,7 +32,7 @@
       oklch(0.07 0 0 / 0.55) 100%
     ),
     radial-gradient(
-      120% 90% at 15% 90%,
+      120% 90% at 50% 75%,
       oklch(0.07 0 0 / 0.7),
       transparent 60%
     );
@@ -39,8 +40,12 @@
 
 .hero__inner {
   width: 100%;
-  padding-bottom: clamp(4.5rem, 12vh, 8rem);
+  padding-bottom: clamp(3rem, 8vh, 6rem);
   padding-top: 7rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
 }
 
 .hero__kicker {
@@ -58,17 +63,28 @@
 
 // El título es el elemento LCP: pinta de inmediato (opacity 1) y solo
 // se desliza, para no retrasar el Largest Contentful Paint.
-.hero__title span {
+// Selector con `>`: los spans internos del scramble no deben ser block.
+.hero__title > span {
   display: block;
   animation: rise-solid 0.9s var(--ease-out-expo) both;
 }
 
-.hero__title span:nth-child(1) {
+.hero__title > span:first-of-type {
   animation-delay: 0.18s;
 }
 
-.hero__title span:nth-child(2) {
+.hero__title > span:last-of-type {
   animation-delay: 0.3s;
+}
+
+// La navaja: cruza en diagonal entre las dos líneas del titular.
+.hero__razor {
+  display: block;
+  width: min(30rem, 74vw);
+  margin: clamp(-0.5rem, -1vw, -0.25rem) auto;
+  color: var(--gold);
+  transform: rotate(-3deg);
+  filter: drop-shadow(0 2px 12px oklch(0 0 0 / 0.5));
 }
 
 .hero__title em {
@@ -78,6 +94,7 @@
 
 .hero__lead {
   margin-top: 1.5rem;
+  margin-inline: auto;
   color: var(--ink-dim);
   opacity: 0;
   animation: rise 0.85s var(--ease-out-expo) 0.42s forwards;
@@ -87,6 +104,7 @@
   margin-top: 2.25rem;
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
   gap: 0.85rem;
   opacity: 0;
   animation: rise 0.85s var(--ease-out-expo) 0.54s forwards;
@@ -96,6 +114,7 @@
   margin-top: clamp(2.5rem, 6vh, 4rem);
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
   gap: clamp(1.5rem, 5vw, 3.5rem);
   padding-top: 1.6rem;
   border-top: 1px solid var(--line);
@@ -192,7 +211,7 @@
 @media (prefers-reduced-motion: reduce) {
   .hero__bg,
   .hero__kicker,
-  .hero__title span,
+  .hero__title > span,
   .hero__lead,
   .hero__actions,
   .hero__meta {

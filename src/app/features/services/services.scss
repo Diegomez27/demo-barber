@@ -119,6 +119,7 @@
     var(--gold-veil),
     transparent 65%
   );
+  clip-path: var(--cut-corner-sm);
 }
 
 .srv--featured .srv__link:hover {

@@ -15,14 +15,38 @@
   <div class="hero__inner shell">
     <p class="kicker hero__kicker">Roma Norte · Ciudad de México</p>
 
+    <!-- El scramble anima innerHTML: solo nodos hoja (sin hijos), para no
+         destruir el <em> dorado. Por eso "es" va en su propio span.
+         La navaja (SVG line-art) "hace el corte" entre las dos líneas y se
+         dibuja con trazo al entrar. -->
     <h1 class="display hero__title">
-      <span>Donde el corte</span>
-      <span>es <em>oficio</em></span>
+      <span data-scramble>La Navaja</span>
+      <svg class="hero__razor" viewBox="0 0 720 170" aria-hidden="true" fill="none">
+        <!-- mango, abierto hacia abajo-izquierda -->
+        <path
+          d="M252 63 L74 128 Q58 134 63 145 Q68 156 84 150 L256 77"
+          stroke="currentColor"
+          stroke-width="3"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        />
+        <!-- hoja: lomo recto, punta curva, filo plano, talón cuadrado -->
+        <path
+          d="M270 46 H640 Q668 46 662 70 Q656 90 628 92 H282 Q266 92 264 74 Q262 52 270 46 Z"
+          stroke="currentColor"
+          stroke-width="3"
+          stroke-linejoin="round"
+        />
+        <!-- línea del filo -->
+        <path d="M292 80 H612" stroke="currentColor" stroke-width="1.5" opacity="0.55" />
+        <!-- pivote -->
+        <circle cx="254" cy="70" r="7" stroke="currentColor" stroke-width="3" />
+      </svg>
+      <span><em data-scramble>Barber</em></span>
     </h1>
 
     <p class="lead hero__lead">
-      Fades de precisión, barba a navaja y afeitado clásico. Sin prisa, sin
-      atajos — solo el filo en manos que llevan años haciéndolo bien.
+      Fades de precisión, barba a navaja y afeitado clásico.
     </p>
 
     <div class="hero__actions">

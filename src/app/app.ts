@@ -1,5 +1,4 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
-import { Booking } from './features/booking/booking';
 import { Footer } from './features/footer/footer';
 import { Gallery } from './features/gallery/gallery';
 import { Hero } from './features/hero/hero';
@@ -17,7 +16,6 @@ import { WhatsappFab } from './shared/whatsapp-fab/whatsapp-fab';
     Services,
     Gallery,
     Team,
-    Booking,
     Footer,
     WhatsappFab,
   ],

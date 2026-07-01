@@ -9,12 +9,35 @@
   gap: clamp(2.5rem, 5vw, 4rem);
 }
 
+// Los estilos de .brand del header están scoped a su componente;
+// el footer replica aquí los suyos.
 .footer__brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
   margin-bottom: 0.75rem;
 }
 
+.footer__brand .brand__mark {
+  display: grid;
+  place-items: center;
+  width: 2rem;
+  height: 2rem;
+  border: 1px solid var(--gold);
+  border-radius: var(--r-sm);
+  color: var(--gold);
+  font-family: var(--font-display);
+  font-size: 1.3rem;
+  line-height: 1;
+  padding-top: 0.15rem;
+}
+
 .footer__brand .brand__name {
+  font-family: var(--font-display);
   font-size: 1.75rem;
+  letter-spacing: 0.14em;
+  line-height: 1;
+  padding-top: 0.1rem;
 }
 
 .footer__tag {
@@ -84,67 +107,65 @@
   width: fit-content;
 }
 
-.footer__map {
-  position: relative;
-  border-radius: var(--r-lg);
-  overflow: hidden;
-  border: 1px solid var(--line);
-  min-height: 280px;
-  background:
-    radial-gradient(120% 120% at 70% 20%, var(--gold-veil), transparent 55%),
-    var(--surface);
-}
-
-// Fallback intencional detrás del iframe. Si el mapa carga (producción),
-// lo cubre; si el iframe no resuelve, queda este estado, no un hueco negro.
-.footer__map-fallback {
-  position: absolute;
-  inset: 0;
-  z-index: 0;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 0.85rem;
-  padding: 2rem 1.5rem;
-  text-align: center;
-  background-image:
-    linear-gradient(var(--line) 1px, transparent 1px),
-    linear-gradient(90deg, var(--line) 1px, transparent 1px);
-  background-size: 28px 28px;
-}
-
-.footer__pin {
-  width: 2.4rem;
-  height: 2.4rem;
-  color: var(--gold);
-}
-
-.footer__map-addr {
-  color: var(--ink-dim);
-  font-size: var(--fs-sm);
-  line-height: 1.6;
-}
-
-.footer__map-link {
+.footer__directions {
+  display: inline-block;
+  margin-top: 0.6rem;
   font-weight: 600;
   color: var(--gold);
   transition: color var(--dur-1) var(--ease-out);
 }
 
-.footer__map-link:hover {
+.footer__directions:hover {
   color: var(--gold-bright);
 }
 
-.footer__map iframe {
-  position: absolute;
-  inset: 0;
-  z-index: 1;
-  width: 100%;
-  height: 100%;
+// ---- Rótulo de marca (sustituye al mapa embebido) ----
+// Panel con corte diagonal y retícula de taller: cartel, no widget.
+.footer__sign {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 0.5rem;
   min-height: 280px;
-  border: 0;
-  filter: grayscale(0.4) invert(0.92) hue-rotate(180deg) contrast(0.9);
+  padding: clamp(2rem, 6vw, 3.5rem);
+  background:
+    radial-gradient(120% 120% at 70% 15%, var(--gold-veil), transparent 55%),
+    linear-gradient(var(--line) 1px, transparent 1px),
+    linear-gradient(90deg, var(--line) 1px, transparent 1px),
+    var(--surface);
+  background-size: auto, 28px 28px, 28px 28px, auto;
+  clip-path: var(--cut-corner);
+}
+
+.footer__sign-est {
+  font-size: var(--fs-label);
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.footer__sign-word {
+  font-family: var(--font-display);
+  font-size: clamp(5rem, 19vw, 10.5rem);
+  line-height: 0.9;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  color: transparent;
+  -webkit-text-stroke: 1.5px var(--gold);
+}
+
+.footer__sign-motto {
+  font-family: var(--font-display);
+  font-size: var(--fs-h3);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--ink);
+}
+
+.footer__sign-motto em {
+  font-style: normal;
+  color: var(--gold);
 }
 
 .footer__bottom {
@@ -165,7 +186,7 @@
     align-items: stretch;
   }
 
-  .footer__map {
+  .footer__sign {
     min-height: 100%;
   }
 }

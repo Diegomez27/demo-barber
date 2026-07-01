@@ -53,11 +53,33 @@
   --maxw: 76rem;
   --maxw-narrow: 46rem;
 
-  // ---- Radios (contenidos: tarjetas 12–16px máx) ----
-  --r-sm: 6px;
-  --r-md: 12px;
-  --r-lg: 16px;
+  // ---- Forma: filo de navaja ----
+  // Esquinas casi rectas — la identidad angular viene del corte diagonal
+  // (--cut-corner), no del redondeo. --r-pill solo para el FAB de WhatsApp.
+  --r-sm: 2px;
+  --r-md: 2px;
+  --r-lg: 2px;
   --r-pill: 999px;
+
+  // Corte diagonal reutilizable ("ticket" / filo). El tamaño del corte vive
+  // en --cut / --cut-sm para poder ajustarlo por componente o breakpoint
+  // sin redefinir el polígono completo.
+  --cut: clamp(14px, 2.5vw, 22px);
+  --cut-sm: 10px;
+  --cut-corner: polygon(
+    0 0,
+    calc(100% - var(--cut)) 0,
+    100% var(--cut),
+    100% 100%,
+    0 100%
+  );
+  --cut-corner-sm: polygon(
+    0 0,
+    calc(100% - var(--cut-sm)) 0,
+    100% var(--cut-sm),
+    100% 100%,
+    0 100%
+  );
 
   // ---- Sombras ----
   --shadow-card: 0 18px 40px -24px oklch(0 0 0 / 0.8);

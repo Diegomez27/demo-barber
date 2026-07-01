@@ -26,9 +26,3 @@ export function whatsappLink(
 ): string {
   return `https://wa.me/${BUSINESS.whatsappNumber}?text=${encodeURIComponent(message)}`;
 }
-
-/** URL del mapa embebido de Google (sin API key). */
-export function mapsEmbed(): string {
-  const q = encodeURIComponent(BUSINESS.mapsQuery);
-  return `https://maps.google.com/maps?width=100%25&height=400&hl=es&q=${q}&t=&z=15&ie=UTF8&iwloc=B&output=embed`;
-}

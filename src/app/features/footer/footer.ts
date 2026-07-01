@@ -1,7 +1,6 @@
-import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
-import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { RevealOnScroll } from '../../shared/reveal-on-scroll';
-import { BUSINESS, mapsEmbed, whatsappLink } from '../../shared/whatsapp';
+import { BUSINESS, whatsappLink } from '../../shared/whatsapp';
 
 @Component({
   selector: 'app-footer',
@@ -11,12 +10,8 @@ import { BUSINESS, mapsEmbed, whatsappLink } from '../../shared/whatsapp';
   styleUrl: './footer.scss',
 })
 export class Footer {
-  private readonly sanitizer = inject(DomSanitizer);
-
   protected readonly biz = BUSINESS;
   protected readonly wa = whatsappLink();
   protected readonly year = new Date().getFullYear();
   protected readonly mapQuery = encodeURIComponent(BUSINESS.mapsQuery);
-  protected readonly map: SafeResourceUrl =
-    this.sanitizer.bypassSecurityTrustResourceUrl(mapsEmbed());
 }

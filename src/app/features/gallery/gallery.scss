@@ -16,17 +16,17 @@
 
 // ---- Masonry con CSS columns (sin librería) ----
 .masonry {
-  column-count: 1;
+  column-count: 2;
   column-gap: clamp(0.75rem, 2vw, 1.25rem);
 }
 
 .masonry__item {
   break-inside: avoid;
   margin-bottom: clamp(0.75rem, 2vw, 1.25rem);
-  border-radius: var(--r-md);
   overflow: hidden;
   background: var(--surface);
   position: relative;
+  clip-path: var(--cut-corner-sm);
 }
 
 .masonry__item img {
@@ -52,19 +52,21 @@
 }
 
 @media (min-width: 560px) {
-  .masonry {
-    column-count: 2;
-  }
-
   .gallery__head {
     grid-template-columns: 1fr 1fr;
     align-items: end;
   }
 }
 
-@media (min-width: 880px) {
+@media (min-width: 700px) {
   .masonry {
     column-count: 3;
+  }
+}
+
+@media (min-width: 1080px) {
+  .masonry {
+    column-count: 4;
   }
 }
 

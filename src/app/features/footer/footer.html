@@ -13,6 +13,13 @@
           {{ biz.address }}<br />
           {{ biz.city }}
         </address>
+        <a
+          class="footer__directions"
+          [href]="'https://www.google.com/maps/search/?api=1&query=' + mapQuery"
+          target="_blank"
+          rel="noopener"
+          >Cómo llegar →</a
+        >
       </div>
 
       <div class="footer__block">
@@ -44,31 +51,11 @@
       </div>
     </div>
 
-    <div class="footer__map" data-reveal>
-      <div class="footer__map-fallback" aria-hidden="true">
-        <svg class="footer__pin" viewBox="0 0 24 24" fill="none">
-          <path
-            d="M12 21s7-5.6 7-11a7 7 0 1 0-14 0c0 5.4 7 11 7 11Z"
-            stroke="currentColor"
-            stroke-width="1.5"
-          />
-          <circle cx="12" cy="10" r="2.5" stroke="currentColor" stroke-width="1.5" />
-        </svg>
-        <p class="footer__map-addr">{{ biz.address }}<br />{{ biz.city }}</p>
-        <a
-          class="footer__map-link"
-          [href]="'https://www.google.com/maps/search/?api=1&query=' + mapQuery"
-          target="_blank"
-          rel="noopener"
-          >Cómo llegar →</a
-        >
-      </div>
-      <iframe
-        [src]="map"
-        title="Mapa de ubicación de NAVAJA en Roma Norte, CDMX"
-        loading="lazy"
-        referrerpolicy="no-referrer-when-downgrade"
-      ></iframe>
+    <!-- Rótulo de marca: pieza tipográfica en lugar del mapa embebido -->
+    <div class="footer__sign" data-reveal aria-hidden="true">
+      <p class="footer__sign-est">Est. 2014 — Roma Norte</p>
+      <p class="footer__sign-word">Navaja</p>
+      <p class="footer__sign-motto">El corte es <em>oficio</em></p>
     </div>
   </div>
 

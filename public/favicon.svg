@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <rect width="64" height="64" rx="18" fill="#0a0a0a"/>
+  <!-- Mango y pivote en dorado -->
+  <path d="M28 34 C 24 38, 20 44, 12 44" fill="none" stroke="#c9a84c" stroke-width="4.5" stroke-linecap="round" />
+  <circle cx="28" cy="34" r="2.5" fill="#c9a84c" />
+  
+  <!-- Hoja en blanco roto/plata -->
+  <g fill="none" stroke="#f6efe5" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round">
+    <!-- Cuerpo de la navaja -->
+    <path d="M31 31 L 49 13 C 52 10, 54 12, 52 17 L 37 35 Z" />
+    <!-- Línea interna para dar sensación de hoja afilada -->
+    <path d="M33 29 L 47 15" stroke-width="1.8" opacity="0.5" />
+  </g>
+</svg>

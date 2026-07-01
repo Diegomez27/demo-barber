@@ -78,7 +78,7 @@ p {
   justify-content: center;
   gap: 0.6rem;
   padding: 0.95rem 1.6rem;
-  border-radius: var(--r-pill);
+  border-radius: var(--r-sm);
   font-family: var(--font-body);
   font-weight: 600;
   font-size: 0.95rem;
@@ -97,6 +97,7 @@ p {
 .btn--gold {
   background: var(--gold);
   color: oklch(0.13 0 0); // negro sobre dorado: 8.8:1, convención premium
+  clip-path: var(--cut-corner-sm);
 }
 
 .btn--gold:hover {
@@ -118,6 +119,7 @@ p {
   background: var(--wa);
   color: oklch(0.16 0.02 158);
   font-weight: 700;
+  clip-path: var(--cut-corner-sm);
 }
 
 .btn--wa:hover {
